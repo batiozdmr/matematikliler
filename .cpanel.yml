@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/web  # Hedef dizin yolu, gerektiğinde değiştirin
+    - export DEPLOYPATH=/home/mat50atiklilcom/web  # Hedef dizin yolu, gerektiğinde değiştirin
     - /bin/cp -R * $DEPLOYPATH       # Dosyaları kopyala
     - /bin/cp -R .[^.]* $DEPLOYPATH   # Gizli dosyaları da kopyala
     - /bin/rm -rf $DEPLOYPATH/.git    # Git verilerini kaldır
