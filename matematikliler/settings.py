@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'django-insecure-3vjtsf(se@a&q!4=f-^#zv*ntg#-s4%fni4u-c&*mz3q8+r93n
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -40,7 +38,6 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = []
-
 
 LOCAL_APPS = [
     'apps.main.mainpage',
@@ -78,17 +75,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'matematikliler.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mat50atiklilcom_main',
+        'USER': 'mat50atiklilcom_main',
+        'PASSWORD': 'J8mRc#nP9LsX',
+        'HOST': 'localhost',  # MySQL sunucunuzun adresi
+        'PORT': '3306',  # MySQL port numarası
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -108,7 +114,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -120,15 +125,14 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL='/media/'
+MEDIA_URL = '/media/'
 STATICFILES_DIRS = [BASE_DIR / "staticfiles"]
-STATIC_ROOT='/home/mat50atiklilcom/public_html/static'
-MEDIA_ROOT='/home/mat50atiklilcom/public_html/media'
+STATIC_ROOT = '/home/mat50atiklilcom/public_html/static'
+MEDIA_ROOT = '/home/mat50atiklilcom/public_html/media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
