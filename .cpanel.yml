@@ -1,0 +1,14 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/web  # Hedef dizin yolu, gerektiğinde değiştirin
+    - /bin/cp -R * $DEPLOYPATH       # Dosyaları kopyala
+    - /bin/cp -R .[^.]* $DEPLOYPATH   # Gizli dosyaları da kopyala
+    - /bin/rm -rf $DEPLOYPATH/.git    # Git verilerini kaldır
+
+# Geliştirme ayağa kalktığında otomatik olarak dağıtma
+auto_deploy:
+  pull:
+    branches: [main]  # Otomatik dağıtılacak dalı ayarlayın
+  tasks:
+    - /usr/local/cpanel/3rdparty/bin/git pull origin main
